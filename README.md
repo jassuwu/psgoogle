@@ -4,6 +4,7 @@ PSGoogle (someone pls come up with a better name) is an institutional search eng
 
 ## Frontend
 The PSGoogle frontend repository houses the Next.js application, which is barebones, but offers a sleek and user-friendly interface for PSGoogle.
+
 Explore the frontend repository: [PSGoogle Frontend Repository](https://github.com/jassuwu/search-psgtech)
 
 ## Backend
