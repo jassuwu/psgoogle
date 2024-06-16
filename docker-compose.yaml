@@ -1,0 +1,23 @@
+services:
+  frontend:
+    image: jassuwu/search-psgtech:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+      - SCRAPE_PSGTECH_SERVER=http://backend:8000
+    networks:
+      - psgoogle-network
+
+  backend:
+    image: jassuwu/scrape-psgtech:latest
+    environment:
+      - PORT=8000
+    networks:
+      - psgoogle-network
+
+networks:
+  psgoogle-network:
+    driver: bridge
