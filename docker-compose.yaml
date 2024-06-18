@@ -13,8 +13,20 @@ services:
 
   backend:
     image: jassuwu/scrape-psgtech:latest
+    depends_on:
+      - redis
     environment:
-      - PORT=8000
+      - ADDR=:8000
+      - REDIS_ADDR=redis:6379
+      - REDIS_PASSWORD=HAHAVERYSTRONGPASSWORD
+    networks:
+      - psgoogle-network
+
+  # ephemeral, no persistance, so no volumes
+  redis:
+    image: redis/redis-stack-server:latest
+    environment:
+      - REDIS_ARGS=--requirepass HAHAVERYSTRONGPASSWORD --maxmemory 256mb --maxmemory-policy allkeys-lru
     networks:
       - psgoogle-network
 
